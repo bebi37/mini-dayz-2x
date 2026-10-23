@@ -6,7 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090d0b">
 <meta name="description" content="Mini DAYZ 2X — an unofficial fan-made survival experience. Discover the Open Beta.">
-<title>MINI DAYZ 2X — Open Beta</title>
+<title>MINI DAYZ 2X — Survive What's Left</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="MINI DAYZ 2X — Survive What's Left">
+<meta property="og:description" content="A fan-made survival experience. Open Beta coming soon.">
+<meta property="og:image" content="https://bebi37.github.io/mini-dayz-2x/assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png">
+<meta name="color-scheme" content="dark">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,7 +153,7 @@ section { padding: 100px 0; scroll-margin-top: 70px; }
       rgba(4, 9, 7, .66) 44%,
       rgba(4, 9, 7, .15) 100%
     ),
-    url("assets/Rusty Car Beneath the Green Aurora.png") center center / cover no-repeat;
+    url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center center / cover no-repeat;
 }
 
 .hero::after {
@@ -495,7 +500,7 @@ footer {
         #050907db,
         #05090788
       ),
-      url("assets/bg-forest.jpg") center center / cover no-repeat;
+      url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center center / cover no-repeat;
   }
 
   .hero h1 { font-size: clamp(73px, 14vw, 120px); }
@@ -512,6 +517,153 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
+}
+
+/* ================================================
+   MDZ 2X / CINEMATIC DESIGN SYSTEM — V2
+   ================================================ */
+:root{--bg:#080c0a;--panel:#121914;--accent:#d8e6ab;--text:#f2f1e9;--muted:#aeb7ac;--border:#3b4a40}
+::selection{background:var(--accent);color:#10140e}
+html{scroll-padding-top:76px}
+body{background:var(--bg);font-feature-settings:"ss01" on}
+.container{max-width:1360px;padding-inline:clamp(20px,6vw,96px)}
+.label{display:flex;align-items:center;gap:14px;letter-spacing:.22em;font-size:11px}
+.label:before{content:"";display:block;width:32px;height:1px;background:currentColor;opacity:.85}
+.navbar{background:rgba(6,11,9,.5);transition:background .3s,border-color .3s}
+.navbar.is-scrolled{background:rgba(7,13,10,.94);border-bottom-color:#a9bda038}
+.nav-content{min-height:82px}
+.nav-logo{font-size:27px;letter-spacing:.065em}
+.nav-links{gap:clamp(13px,2.2vw,32px);font-size:11px}
+.nav-links a{position:relative;padding:11px 0;color:#e8eae2a8}
+.nav-links a:last-child{color:var(--accent);border:1px solid #d8e6ab73;padding:13px 18px}
+.nav-links a:not(:last-child):after{position:absolute;bottom:4px;left:0;width:0;height:1px;background:var(--accent);content:"";transition:width .3s}
+.nav-links a:not(:last-child):hover:after{width:100%}
+.hero{min-height:100svh;padding:150px 0 118px;align-items:center}
+.hero::before{background:linear-gradient(90deg,rgba(4,9,7,.85) 0%,rgba(4,9,7,.62) 40%,rgba(4,9,7,.18) 80%),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center center/cover no-repeat;animation:heroBreathe 30s ease-in-out infinite alternate}
+.hero::after{background:linear-gradient(to top,var(--bg) 0%,transparent 27%),linear-gradient(to bottom,#080c0a7c 0%,transparent 29%),linear-gradient(90deg,#06120a35,transparent 80%);opacity:1}
+@keyframes heroBreathe{from{transform:scale(1)}to{transform:scale(1.085) translateX(-1.1%)}}
+.hero-copy{max-width:1010px;position:relative}
+.hero-status{display:inline-flex;background:#0a130ecb;border:1px solid #a8c29653;padding:12px 17px;color:#e3eaba;font-size:10px;letter-spacing:.21em;box-shadow:0 0 40px #111a0a45}
+.hero-status:before{display:none}
+.status-dot{height:7px;width:7px;border-radius:100%;background:#c6e8a5;box-shadow:0 0 13px #b6eb89}
+.hero h1{font-size:clamp(95px,13.2vw,192px);line-height:.78;letter-spacing:-.028em;margin:36px 0 36px;max-width:100%;font-weight:900;text-shadow:0 7px 34px #01040165}
+.hero h1 .accent{color:var(--accent);text-shadow:0 0 45px #bddfa622}
+.hero-description{font-size:clamp(14px,1.3vw,17px);line-height:1.85;max-width:480px;color:#e0e7da}
+.hero .buttons{margin-top:34px}
+.btn{min-height:58px;padding-inline:31px;border-radius:0;font-size:11px;letter-spacing:.095em;box-shadow:none}
+.btn:hover{transform:translateY(-3px)}
+.hero .btn-secondary{background:#070d09c0;backdrop-filter:blur(4px)}
+.hero-footnote{margin-top:38px;font-size:10px;letter-spacing:.17em;color:#c3cebc}
+.hero-footnote .sep{padding:0 10px;color:#8a9d88}
+.hero-coordinate{position:absolute;top:124px;right:clamp(20px,6vw,96px);display:flex;gap:27px;z-index:2;font-size:10px;color:#e1e8daa8;letter-spacing:.13em}
+.hero-vertical{position:absolute;right:clamp(12px,1.6vw,29px);top:47%;writing-mode:vertical-rl;z-index:2;letter-spacing:.29em;font-size:10px;color:#d0dbc4a0}
+.hero-bottom{position:absolute;bottom:39px;left:clamp(20px,6vw,96px);right:clamp(20px,6vw,96px);display:flex;align-items:center;justify-content:space-between;gap:18px;z-index:2;color:#d9e6d49d;font-size:10px;font-weight:600;letter-spacing:.14em}
+.hero-bottom b{font-size:19px;color:#e3ebdd;font-weight:800}
+.hero-bottom i{font-style:normal;padding-inline:8px}
+.down-arrow{font-size:23px;display:inline-block;transform:translateY(2px);padding-left:14px;color:var(--accent)}
+.features{padding:0;background:#0e1510;border-block:1px solid #c5d8b628}
+.feature-grid{gap:0}
+.feature{padding:35px clamp(17px,3.2vw,48px);border-left:1px solid #b9d7a826;position:relative;transition:background .25s}
+.feature:last-child{border-right:1px solid #b9d7a826}
+.feature:hover{background:#2533296b}
+.feature:before{content:"01 /";display:block;margin-bottom:18px;color:#d8e6ab8c;font:700 11px Inter,sans-serif;letter-spacing:.16em}
+.feature:nth-child(2):before{content:"02 /"}
+.feature:nth-child(3):before{content:"03 /"}
+.feature strong{font-size:clamp(26px,2.4vw,36px);letter-spacing:0}
+.feature span{font-size:13px;line-height:1.65;max-width:280px}
+section{padding:clamp(76px,9vw,140px) 0}
+.section-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.65fr);align-items:end;gap:24px;margin-bottom:50px}
+.section-heading .label{grid-column:1/-1}
+.section-heading h2{font-size:clamp(64px,8.8vw,122px);line-height:.83;letter-spacing:-.008em;margin:0}
+.section-heading p{margin:0 0 7px auto;max-width:400px;font-size:15px;color:#b6bfb4}
+.trailer{background:#0b100d;border-bottom:1px solid #2a382d}
+.video-frame{position:relative;aspect-ratio:16/8.3;border:1px solid #68816c66;background:linear-gradient(180deg,#02070418,#020704bf),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center 54%/cover;box-shadow:0 35px 80px #00000046}
+.video-frame:before,.video-frame:after{content:"";position:absolute;height:18px;width:18px;border:solid var(--accent);pointer-events:none;z-index:1}
+.video-frame:before{top:14px;left:14px;border-width:1px 0 0 1px}
+.video-frame:after{right:14px;bottom:14px;border-width:0 1px 1px 0}
+.video-frame iframe{position:relative;z-index:2}
+.trailer-placeholder{position:relative;z-index:1}
+.play-circle{margin-bottom:17px;background:#0c160f6b;border-color:#d6e9af;color:var(--accent);backdrop-filter:blur(10px);transition:transform .3s;width:96px;height:96px;font-size:27px}
+.trailer-caption{font:800 clamp(26px,3vw,42px) "Barlow Condensed",sans-serif;letter-spacing:.025em}
+.trailer-placeholder p{margin:5px 0 0;color:#d5dfd1;font-size:10px}
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.screenshot{aspect-ratio:16/9;grid-column:span 5;background:linear-gradient(135deg,#1f3027,#0c130f);transition:border-color .3s,transform .3s;position:relative}
+.screenshot:nth-child(4n+1),.screenshot:nth-child(4n+4){grid-column:span 7}
+.screenshot:before{content:"MEDIA ARCHIVE / PLACEHOLDER";position:absolute;top:21px;left:22px;letter-spacing:.16em;font-size:9px;color:#dcead69c;font-weight:700;z-index:1}
+.screenshot:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.25;background:repeating-linear-gradient(0deg,transparent 0px,transparent 5px,#ffffff04 6px)}
+.screenshot:hover{border-color:#c0d89d77;transform:translateY(-4px)}
+.screenshot span{font-size:clamp(23px,3.3vw,44px);color:#d7e6d5a9}
+.screenshot img{position:relative;z-index:0;transition:transform .5s}
+.screenshot:hover img{transform:scale(1.035)}
+.screenshot:has(img):before{content:"GAMEPLAY CAPTURE"}
+.download{background:#101711}
+.download-panel{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:30px;padding:clamp(32px,6vw,95px);min-height:360px;background:linear-gradient(90deg,#1c2920f4,#1c2920dd 62%,#1b321da1),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") right center/cover;border-color:#adca945c}
+.download-panel:after{content:"02X";position:absolute;right:15px;bottom:-68px;color:#b7d9a50b;font:900 clamp(180px,22vw,320px) "Barlow Condensed",sans-serif;pointer-events:none}
+.download-panel h2{font-size:clamp(65px,8vw,112px);line-height:.83;position:relative;z-index:1}
+.download-controls{z-index:1;position:relative}
+.download-controls small{font-size:11px;letter-spacing:.09em}
+.update{background:#121914;border:1px solid #304236;padding:35px clamp(24px,3vw,45px);grid-template-columns:200px 1fr}
+.update-version{font-size:42px}
+.update h3{font-size:35px}
+.timeline-foot{margin-top:25px;color:#b8cfa6;font-weight:700;letter-spacing:.12em;font-size:10px}
+.timeline-foot span{padding-inline:10px}
+.discord-section{background:linear-gradient(#07100bc9,#07100bef),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center 60%/cover;border-top:1px solid #455d4866;padding-block:clamp(110px,11vw,190px)}
+.discord-section .label{justify-content:center}
+.discord-section h2{font-size:clamp(84px,12vw,170px);line-height:.78;letter-spacing:-.01em;margin:40px 0 30px}
+.discord-section p{max-width:580px;color:#d3dbd0}
+.discord-section .buttons{margin-top:36px}
+footer{background:#080d0a;padding:45px 0}
+.footer-inner{align-items:center}
+.footer-inner strong{font-size:31px;color:#f3f3ed}
+.footer-inner div{max-width:490px;line-height:1.7;font-size:11px}
+.reveal-pending{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal-pending.revealed{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  .section-heading{grid-template-columns:1fr;gap:14px}
+  .section-heading .label{grid-column:auto}
+  .section-heading p{margin:0}
+  .hero h1{font-size:clamp(78px,14vw,138px)}
+  .hero-vertical{display:none}
+}
+@media(max-width:760px){
+  .container{padding-inline:22px}
+  .nav-content{min-height:65px}
+  .nav-logo{font-size:23px}
+  .nav-links{gap:13px}
+  .nav-links a{font-size:10px}
+  .nav-links a:last-child{padding:9px 11px}
+  .hero{min-height:93svh;padding:122px 0 105px}
+  .hero::before{background:linear-gradient(90deg,#050a07d9,#050a0790),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center/cover no-repeat}
+  .hero-coordinate{top:89px;left:22px;right:22px;justify-content:space-between;font-size:9px}
+  .hero h1{font-size:clamp(76px,15.4vw,118px);letter-spacing:-.035em}
+  .hero-description{font-size:14px}
+  .hero-bottom{bottom:22px;left:22px;right:22px}
+  .scroll-word{display:none}
+  .feature-grid{grid-template-columns:1fr}
+  .feature{padding:26px 6px;border-left:0;border-bottom:1px solid #a2b29b24}
+  .feature:last-child{border-right:0;border-bottom:0}
+  .section-heading h2{font-size:clamp(57px,11vw,90px)}
+  .video-frame{aspect-ratio:16/10}
+  .play-circle{width:72px;height:72px;font-size:23px}
+  .trailer-caption{font-size:26px}
+  .gallery{grid-template-columns:1fr}
+  .screenshot,.screenshot:nth-child(4n+1),.screenshot:nth-child(4n+4){grid-column:auto;aspect-ratio:16/10}
+  .download-panel{grid-template-columns:1fr;padding:36px 25px}
+  .download-controls{text-align:left}
+  .download-panel h2{font-size:clamp(60px,12vw,90px)}
+  .update{grid-template-columns:1fr}
+  .discord-section h2{font-size:clamp(74px,15vw,115px)}
+}
+@media(max-width:420px){
+  .nav-logo{font-size:20px}
+  .nav-links a[href="#updates"]{display:none}
+  .btn{min-height:50px;padding-inline:19px}
+  .hero h1{font-size:clamp(67px,16vw,86px)}
+  .hero .buttons{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero::before{animation:none}
+  .reveal-pending{opacity:1;transform:none;transition:none}
 }
 </style>
 </head>
@@ -541,12 +693,12 @@ footer {
 <!-- HERO -->
 
 <header class="hero" id="home">
+  <div class="hero-coordinate" aria-hidden="true"><span>SECTOR / 02X</span><span>TRANSMISSION 001</span></div>
+  <div class="hero-vertical" aria-hidden="true">THE WORLD IS STILL DEAD ·</div>
   <div class="container hero-content">
     <div class="hero-copy">
 
-      <div class="label">
-        Open Beta · Coming Soon
-      </div>
+      <div class="label hero-status"><span class="status-dot" aria-hidden="true"></span> Open Beta / Coming Soon</div>
 
       <h1>
         MINI<br>
@@ -565,7 +717,7 @@ footer {
         </a>
 
         <a class="btn btn-secondary" href="#trailer">
-          Watch Trailer ▷
+          Watch the Trailer ↗
         </a>
 
         <a class="btn btn-secondary"
@@ -576,12 +728,11 @@ footer {
         </a>
       </div>
 
-      <div class="hero-footnote">
-        Unofficial Fan Project · Open Beta
-      </div>
+      <div class="hero-footnote">INDEPENDENT FAN PROJECT <span class="sep">/</span> PC <span class="sep">/</span> BETA DEVELOPMENT</div>
 
     </div>
   </div>
+  <div class="hero-bottom" aria-hidden="true"><span><b>01</b> / 05 <i>—</i> SURVIVE WHAT'S LEFT</span><span class="scroll-word">SCROLL TO EXPLORE <span class="down-arrow">↓</span></span></div>
 </header>
 
 <!-- FEATURES -->
@@ -631,8 +782,9 @@ footer {
 
     <div class="video-frame" id="videoFrame">
       <div class="trailer-placeholder">
-        <div class="play-circle">▶</div>
-        <p>Trailer coming soon</p>
+        <div class="play-circle" aria-hidden="true">▶</div>
+        <strong class="trailer-caption">FIRST TRANSMISSION</strong>
+        <p>Official trailer · Coming soon</p>
       </div>
     </div>
 
@@ -645,7 +797,7 @@ footer {
   <div class="container">
 
     <div class="section-heading">
-      <div class="label">Gameplay Gallery</div>
+      <div class="label">Field Archives / 002</div>
       <h2>
         TAKE A<br>
         CLOSER LOOK.
@@ -722,7 +874,7 @@ footer {
   <div class="container">
 
     <div class="section-heading">
-      <div class="label">Development Log</div>
+      <div class="label">Field Notes / 004</div>
       <h2>
         PATCH NOTES.
       </h2>
@@ -747,7 +899,7 @@ footer {
         <p>
           Detailed patch notes will be published
           alongside the first downloadable build.
-        </p>
+        </p><div class="timeline-foot">LATEST ENTRY <span>—</span> PUBLIC BETA PREPARATION</div>
       </div>
     </div>
 
@@ -759,7 +911,7 @@ footer {
 <section class="discord-section" id="discord">
   <div class="container">
 
-    <div class="label">Join the Community</div>
+    <div class="label">Outpost / 005</div>
 
     <h2>
       SURVIVE<br>
@@ -878,6 +1030,27 @@ document.querySelectorAll(".screenshot")
     slot.replaceChildren(img);
   });
 
+
+/* Subtle enhancements. Content remains visible when JavaScript is disabled. */
+(function () {
+  const nav = document.querySelector('.navbar');
+  const setNav = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 36);
+  setNav();
+  window.addEventListener('scroll', setNav, {passive: true});
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const nodes = document.querySelectorAll('.section-heading, .feature, .video-frame, .screenshot, .download-panel, .update, .discord-section .container');
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      }
+    }, {threshold: 0.08, rootMargin: '0px 0px 60px 0px'});
+    nodes.forEach(node => { node.classList.add('reveal-pending'); observer.observe(node); });
+  }
+})();
 </script>
 
 </body>
