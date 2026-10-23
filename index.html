@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090c0c">
+  <meta name="description" content="Mini DAYZ 2X — an unofficial fan-made survival game. Explore the Open Beta.">
+  <title>MINI DAYZ 2X | Open Beta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090c0c;
+      --panel: #141a19;
+      --text: #f1f2ec;
+      --muted: #9da8a3;
+      --accent: #cbdfaa;
+      --line: #354039;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      max-width: 1200px;
+      padding: 0 28px;
+      margin: 0 auto;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid #ffffff22;
+      background: #080b0b88;
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      font: 800 27px "Barlow Condensed", sans-serif;
+      letter-spacing: 1.5px;
+    }
+    .brand span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      min-height: 95vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, #080b0bee 0%, #080b0b99 55%, #080b0b44),
+        linear-gradient(0deg, #090c0c, transparent 45%),
+        radial-gradient(ellipse at 80% 45%, #465d48, transparent 55%),
+        linear-gradient(130deg, #1b302a, #080b0b);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .13;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        #ffffff09 4px
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 150px;
+      padding-bottom: 120px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+    h1, h2, h3 {
+      font-family: "Barlow Condensed", Impact, sans-serif;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    h1 {
+      font-size: clamp(80px, 13vw, 175px);
+      line-height: .83;
+      letter-spacing: -3px;
+      margin: 30px 0;
+      font-weight: 900;
+    }
+    h1 .x {
+      color: var(--accent);
+      text-shadow: 0 0 45px #b7d68c33;
+    }
+    .hero-description {
+      max-width: 540px;
+      line-height: 1.8;
+      color: #c1cbc5;
+      font-size: 15px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 35px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 26px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #111910;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #e5f0cc;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: #ffffff66;
+    }
+    .btn-outline:hover { background: #ffffff15; }
+    .release-note {
+      margin-top: 40px;
+      color: #b5bcb7;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    section { padding: 105px 0; }
+    .section-header { margin-bottom: 35px; }
+    .section-header h2 {
+      font-size: clamp(46px, 7vw, 76px);
+      line-height: .95;
+      margin-top: 16px;
+    }
+    .section-header p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 690px;
+      font-size: 14px;
+    }
+
+    /* TRAILER */
+    .trailer-section { background: #101614; }
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 50%, #31433c, #090d0c 65%);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-placeholder { text-align: center; }
+    .play-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 20px;
+      border: 1px solid #d3e4c577;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 25px;
+    }
+    .video-placeholder p {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* SCREENSHOTS */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .shot {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(150deg, #273c31, #101714 70%);
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .shot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 70px #00000088;
+      pointer-events: none;
+    }
+    .shot span {
+      color: #d0dad1;
+      font: 700 14px "Barlow Condensed", sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* DOWNLOAD */
+    .download-panel {
+      padding: 70px;
+      border: 1px solid #65786155;
+      background:
+        radial-gradient(ellipse at 90% 10%, #42584244, transparent 55%),
+        var(--panel);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .download-panel h2 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1;
+      margin: 15px 0;
+    }
+    .download-panel p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .download-action { text-align: center; }
+    .download-action small {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    /* CHANGELOG */
+    .changelog {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 35px;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+    .version {
+      font: 800 34px "Barlow Condensed", sans-serif;
+      color: var(--accent);
+    }
+    .changelog h3 {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+    .changelog p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* DISCORD */
+    .community {
+      background: #17201c;
+      text-align: center;
+    }
+    .community h2 {
+      font-size: clamp(56px, 9vw, 100px);
+      line-height: .95;
+      margin: 20px auto;
+    }
+    .community p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .community .actions { justify-content: center; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 0 20px; }
+      .nav-inner { min-height: 68px; }
+      .nav-links { gap: 12px; font-size: 10px; }
+      .nav-links .optional { display: none; }
+      .hero { min-height: 83vh; }
+      h1 { letter-spacing: -1px; }
+      section { padding: 70px 0; }
+      .gallery { grid-template-columns: 1fr; }
+      .download-panel { padding: 35px 25px; }
+      .changelog { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#home">MINI DAYZ 2<span>X</span></a>
+      <div class="nav-links">
+        <a class="optional" href="#trailer">Trailer</a>
+        <a class="optional" href="#gallery">Media</a>
+        <a href="#updates">Updates</a>
+        <a href="#download">Download ↓</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="container hero-content">
+        <div class="eyebrow">Open Beta · Now Available</div>
+        <h1>MINI<br>DAYZ 2<span class="x">X</span></h1>
+        <p class="hero-description">
+          A familiar world. A different survival experience.
+          Explore, scavenge, fight, and make every day count
+          in an expanded, fan-made reimagining of Mini DAYZ 2.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#download">Download Beta ↗</a>
+          <a class="btn btn-outline" href="#trailer">Watch Trailer ▷</a>
+        </div>
+        <div class="release-note">
+          Unofficial fan project · Beta build
+        </div>
+      </div>
+    </header>
+
+    <section class="trailer-section" id="trailer">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Official Trailer</div>
+          <h2>THE WORLD<br>IS STILL DEAD.</h2>
+          <p>Take a first look at Mini DAYZ 2X in action.</p>
+        </div>
+        <div class="video-frame" id="videoFrame">
+          <div class="video-placeholder">
+            <div class="play-icon">▶</div>
+            <p>Trailer coming soon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">In-Game Footage</div>
+          <h2>TAKE A CLOSER LOOK.</h2>
+          <p>Gameplay screenshots captured from the world of MDZ 2X.</p>
+        </div>
+        <div class="gallery" id="screenshots">
+          <div class="shot"><span>Gameplay 01</span></div>
+          <div class="shot"><span>Gameplay 02</span></div>
+          <div class="shot"><span>Gameplay 03</span></div>
+          <div class="shot"><span>Gameplay 04</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="download-panel">
+          <div>
+            <div class="eyebrow">Join the Open Beta</div>
+            <h2>YOUR STORY<br>STARTS HERE.</h2>
+            <p>Windows PC · Beta · Free to play</p>
+          </div>
+          <div class="download-action">
+            <a class="btn" id="downloadLink" href="#" aria-disabled="true">
+              Download coming soon
+            </a>
+            <small>Beta build · Windows</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="updates">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Development Log</div>
+          <h2>PATCH NOTES.</h2>
+          <p>Follow the changes as Mini DAYZ 2X evolves.</p>
+        </div>
+        <div class="changelog">
+          <div class="version">BETA v0.1.0</div>
+          <div>
+            <h3>FIRST PUBLIC BETA</h3>
+            <p>
+              Initial public beta build. Full release notes
+              will be published here alongside the download.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="community" id="community">
+      <div class="container">
+        <div class="eyebrow">The Community</div>
+        <h2>YOU'RE NOT<br>ALONE OUT THERE.</h2>
+        <p>
+          Meet other survivors, share your creations, report bugs,
+          suggest features, and follow future development.
+          Modding and experimentation are welcome.
+        </p>
+        <div class="actions">
+          <a class="btn btn-outline" id="discordLink"
+             href="#" aria-disabled="true">Discord coming soon</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <strong>MINI DAYZ 2X</strong>
+      <span>
+        Unofficial fan-made project. Not affiliated with or
+        endorsed by the original game's rights holders.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    // ADD YOUR REAL LINKS AND IMAGES HERE
+    const site = {
+      downloadURL: "",
+      discordURL: "",
+      youtubeEmbedURL: "",
+      heroImage: "",
+      screenshots: ["", "", "", ""]
+    };
+
+    const download = document.getElementById("downloadLink");
+    if (site.downloadURL) {
+      download.href = site.downloadURL;
+      download.textContent = "Download Beta ↗";
+      download.removeAttribute("aria-disabled");
+    } else {
+      download.addEventListener("click", e => e.preventDefault());
+    }
+
+    const discord = document.getElementById("discordLink");
+    if (site.discordURL) {
+      discord.href = site.discordURL;
+      discord.textContent = "Join Our Discord ↗";
+      discord.target = "_blank";
+      discord.rel = "noopener noreferrer";
+      discord.removeAttribute("aria-disabled");
+    } else {
+      discord.addEventListener("click", e => e.preventDefault());
+    }
+
+    if (site.youtubeEmbedURL) {
+      const iframe = document.createElement("iframe");
+      iframe.src = site.youtubeEmbedURL;
+      iframe.title = "Mini DAYZ 2X Trailer";
+      iframe.loading = "lazy";
+      iframe.allowFullscreen = true;
+      iframe.allow =
+        "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+      document.getElementById("videoFrame").replaceChildren(iframe);
+    }
+
+    if (site.heroImage) {
+      const hero = document.querySelector(".hero");
+      hero.style.backgroundImage =
+        `linear-gradient(90deg,#080b0bee,#080b0b55),
+         linear-gradient(0deg,#090c0c,transparent 50%),
+         url("${site.heroImage}")`;
+      hero.style.backgroundSize = "cover";
+      hero.style.backgroundPosition = "center";
+    }
+
+    document.querySelectorAll(".shot").forEach((slot, index) => {
+      const path = site.screenshots[index];
+      if (!path) return;
+      const img = document.createElement("img");
+      img.src = path;
+      img.alt = `Mini DAYZ 2X gameplay screenshot ${index + 1}`;
+      img.loading = "lazy";
+      slot.replaceChildren(img);
+    });
+  </script>
+</body>
+</html>
