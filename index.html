@@ -665,6 +665,35 @@ footer{background:#080d0a;padding:45px 0}
   .hero::before{animation:none}
   .reveal-pending{opacity:1;transform:none;transition:none}
 }
+
+/* Live gallery artwork */
+.screenshot.gallery-photo {display:block;cursor:zoom-in;outline-offset:5px}
+.screenshot.gallery-photo img {
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;image-rendering:auto;
+  transition:transform .6s ease,filter .6s ease;
+}
+.screenshot.gallery-photo:hover img {transform:scale(1.045);filter:saturate(1.06)}
+.screenshot.gallery-photo::before {
+  content:"ARTWORK / CONCEPT";font-size:10px;z-index:3;
+  color:#e6eddc;text-shadow:0 2px 12px #000;
+}
+.screenshot.gallery-photo::after {
+  content:"";opacity:1;position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(4,9,6,.89) 0%,rgba(4,9,6,.42) 19%,transparent 50%);
+  pointer-events:none;
+}
+.gallery-label {
+  position:absolute;z-index:3;bottom:0;left:0;right:0;
+  padding:22px 24px;display:flex;align-items:center;gap:13px;
+  color:#f1f3e9;font:800 clamp(18px,2.3vw,29px) "Barlow Condensed",sans-serif;
+  letter-spacing:.025em;text-transform:uppercase;text-shadow:0 2px 12px #000;
+}
+.gallery-number {font:700 11px Inter,sans-serif;color:var(--accent);letter-spacing:.06em}
+.gallery-arrow {margin-left:auto;color:var(--accent);font:500 27px Inter,sans-serif}
+@media(max-width:760px){.gallery-label{padding:17px 18px;font-size:25px}}
+@media(prefers-reduced-motion:reduce){.screenshot.gallery-photo img{transition:none}}
+
 </style>
 </head>
 
@@ -803,27 +832,31 @@ footer{background:#080d0a;padding:45px 0}
         CLOSER LOOK.
       </h2>
       <p>
-        A glimpse into the world of Mini DAYZ 2X.
+        Cinematic concept artwork inspired by MDZ 2X scenes. These are enhanced illustrations, not direct gameplay captures.
       </p>
     </div>
 
     <div class="gallery" id="screenshots">
 
-      <div class="screenshot">
-        <span>Screenshot 01</span>
-      </div>
+      <a class="screenshot gallery-photo" href="assets/gallery-camp.webp" target="_blank" rel="noopener" aria-label="Open survivor camp concept image">
+        <img src="assets/gallery-camp.webp" alt="Wide pixel-art concept of a fortified survivor camp with a helicopter and workshops" width="1200" height="675" loading="lazy" decoding="async">
+        <div class="gallery-label"><span class="gallery-number">01 /</span> THE SURVIVOR OUTPOST <span class="gallery-arrow">↗</span></div>
+      </a>
 
-      <div class="screenshot">
-        <span>Screenshot 02</span>
-      </div>
+      <a class="screenshot gallery-photo" href="assets/gallery-road.webp" target="_blank" rel="noopener" aria-label="Open lonely road concept image">
+        <img src="assets/gallery-road.webp" alt="Lone survivor on an abandoned road cutting through a post-apocalyptic forest" width="1200" height="675" loading="lazy" decoding="async">
+        <div class="gallery-label"><span class="gallery-number">02 /</span> THE LONG ROAD <span class="gallery-arrow">↗</span></div>
+      </a>
 
-      <div class="screenshot">
-        <span>Screenshot 03</span>
-      </div>
+      <a class="screenshot gallery-photo" href="assets/gallery-rain.webp" target="_blank" rel="noopener" aria-label="Open rainy forest concept image">
+        <img src="assets/gallery-rain.webp" alt="Pixel-art survivor walking through a muddy forest path during a heavy downpour" width="1200" height="675" loading="lazy" decoding="async">
+        <div class="gallery-label"><span class="gallery-number">03 /</span> INTO THE STORM <span class="gallery-arrow">↗</span></div>
+      </a>
 
-      <div class="screenshot">
-        <span>Screenshot 04</span>
-      </div>
+      <a class="screenshot gallery-photo" href="assets/gallery-combat.webp" target="_blank" rel="noopener" aria-label="Open zombie combat concept image">
+        <img src="assets/gallery-combat.webp" alt="Pixel-art survivor performing a circular sledgehammer attack against zombies in the rain" width="1200" height="675" loading="lazy" decoding="async">
+        <div class="gallery-label"><span class="gallery-number">04 /</span> LAST STAND <span class="gallery-arrow">↗</span></div>
+      </a>
 
     </div>
 
@@ -968,14 +1001,7 @@ footer{background:#080d0a;padding:45px 0}
 const SITE = {
   downloadURL: "",
 
-  trailerEmbedURL: "",
-
-  screenshots: [
-    "",
-    "",
-    "",
-    ""
-  ]
+  trailerEmbedURL: ""
 };
 
 /* DOWNLOAD BUTTON */
@@ -1010,26 +1036,6 @@ if (SITE.trailerEmbedURL) {
     .getElementById("videoFrame")
     .replaceChildren(iframe);
 }
-
-/* SCREENSHOT GALLERY */
-
-document.querySelectorAll(".screenshot")
-  .forEach((slot, index) => {
-
-    const imagePath = SITE.screenshots[index];
-
-    if (!imagePath) return;
-
-    const img = document.createElement("img");
-    img.src = imagePath;
-    img.alt =
-      "Mini DAYZ 2X gameplay screenshot " +
-      (index + 1);
-    img.loading = "lazy";
-
-    slot.replaceChildren(img);
-  });
-
 
 /* Subtle enhancements. Content remains visible when JavaScript is disabled. */
 (function () {
