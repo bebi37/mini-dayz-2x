@@ -2,571 +2,883 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090c0c">
-  <meta name="description" content="Mini DAYZ 2X — an unofficial fan-made survival game. Explore the Open Beta.">
-  <title>MINI DAYZ 2X | Open Beta</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d0b">
+<meta name="description" content="Mini DAYZ 2X — an unofficial fan-made survival experience. Discover the Open Beta.">
+<title>MINI DAYZ 2X — Open Beta</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #090c0c;
-      --panel: #141a19;
-      --text: #f1f2ec;
-      --muted: #9da8a3;
-      --accent: #cbdfaa;
-      --line: #354039;
-    }
+<style>
+:root {
+  --bg: #090d0b;
+  --panel: #151d18;
+  --accent: #d0e5a2;
+  --text: #f2f4ed;
+  --muted: #a7b1a8;
+  --border: #344137;
+}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, Arial, sans-serif;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
-    }
+* { box-sizing: border-box; }
 
-    .container {
-      max-width: 1200px;
-      padding: 0 28px;
-      margin: 0 auto;
-    }
+html { scroll-behavior: smooth; }
 
-    /* NAVIGATION */
-    nav {
-      position: absolute;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      right: 0;
-      border-bottom: 1px solid #ffffff22;
-      background: #080b0b88;
-      backdrop-filter: blur(12px);
-    }
-    .nav-inner {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .brand {
-      font: 800 27px "Barlow Condensed", sans-serif;
-      letter-spacing: 1.5px;
-    }
-    .brand span { color: var(--accent); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .nav-links a:hover { color: var(--accent); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+  overflow-x: hidden;
+}
 
-    /* HERO */
-    .hero {
-      min-height: 95vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, #080b0bee 0%, #080b0b99 55%, #080b0b44),
-        linear-gradient(0deg, #090c0c, transparent 45%),
-        radial-gradient(ellipse at 80% 45%, #465d48, transparent 55%),
-        linear-gradient(130deg, #1b302a, #080b0b);
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .13;
-      pointer-events: none;
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 3px,
-        #ffffff09 4px
-      );
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding-top: 150px;
-      padding-bottom: 120px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      background: var(--accent);
-    }
-    h1, h2, h3 {
-      font-family: "Barlow Condensed", Impact, sans-serif;
-      text-transform: uppercase;
-      margin: 0;
-    }
-    h1 {
-      font-size: clamp(80px, 13vw, 175px);
-      line-height: .83;
-      letter-spacing: -3px;
-      margin: 30px 0;
-      font-weight: 900;
-    }
-    h1 .x {
-      color: var(--accent);
-      text-shadow: 0 0 45px #b7d68c33;
-    }
-    .hero-description {
-      max-width: 540px;
-      line-height: 1.8;
-      color: #c1cbc5;
-      font-size: 15px;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-      margin-top: 35px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 26px;
-      border: 1px solid var(--accent);
-      background: var(--accent);
-      color: #111910;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: transform .2s, background .2s;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      background: #e5f0cc;
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border-color: #ffffff66;
-    }
-    .btn-outline:hover { background: #ffffff15; }
-    .release-note {
-      margin-top: 40px;
-      color: #b5bcb7;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+a { color: inherit; text-decoration: none; }
 
-    /* SECTIONS */
-    section { padding: 105px 0; }
-    .section-header { margin-bottom: 35px; }
-    .section-header h2 {
-      font-size: clamp(46px, 7vw, 76px);
-      line-height: .95;
-      margin-top: 16px;
-    }
-    .section-header p {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 690px;
-      font-size: 14px;
-    }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
 
-    /* TRAILER */
-    .trailer-section { background: #101614; }
-    .video-frame {
-      aspect-ratio: 16 / 9;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 50% 50%, #31433c, #090d0c 65%);
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .video-frame iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .video-placeholder { text-align: center; }
-    .play-icon {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 20px;
-      border: 1px solid #d3e4c577;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--accent);
-      font-size: 25px;
-    }
-    .video-placeholder p {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+.container {
+  max-width: 1200px;
+  padding: 0 28px;
+  margin: auto;
+}
 
-    /* SCREENSHOTS */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .shot {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(150deg, #273c31, #101714 70%);
-      background-position: center;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .shot::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      box-shadow: inset 0 0 70px #00000088;
-      pointer-events: none;
-    }
-    .shot span {
-      color: #d0dad1;
-      font: 700 14px "Barlow Condensed", sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .shot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+h1, h2, h3 {
+  font-family: "Barlow Condensed", Impact, sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}
 
-    /* DOWNLOAD */
-    .download-panel {
-      padding: 70px;
-      border: 1px solid #65786155;
-      background:
-        radial-gradient(ellipse at 90% 10%, #42584244, transparent 55%),
-        var(--panel);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    .download-panel h2 {
-      font-size: clamp(48px, 7vw, 82px);
-      line-height: 1;
-      margin: 15px 0;
-    }
-    .download-panel p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .download-action { text-align: center; }
-    .download-action small {
-      display: block;
-      margin-top: 14px;
-      color: var(--muted);
-    }
+h2 {
+  font-size: clamp(50px, 7vw, 82px);
+  line-height: .95;
+  letter-spacing: -.5px;
+}
 
-    /* CHANGELOG */
-    .changelog {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 35px;
-      padding: 30px 0;
-      border-top: 1px solid var(--line);
-    }
-    .version {
-      font: 800 34px "Barlow Condensed", sans-serif;
-      color: var(--accent);
-    }
-    .changelog h3 {
-      font-size: 30px;
-      margin-bottom: 14px;
-    }
-    .changelog p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
+p { line-height: 1.8; }
 
-    /* DISCORD */
-    .community {
-      background: #17201c;
-      text-align: center;
-    }
-    .community h2 {
-      font-size: clamp(56px, 9vw, 100px);
-      line-height: .95;
-      margin: 20px auto;
-    }
-    .community p {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-    .community .actions { justify-content: center; }
+section { padding: 100px 0; scroll-margin-top: 70px; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 35px 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
+.label {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 
-    @media (max-width: 700px) {
-      .container { padding: 0 20px; }
-      .nav-inner { min-height: 68px; }
-      .nav-links { gap: 12px; font-size: 10px; }
-      .nav-links .optional { display: none; }
-      .hero { min-height: 83vh; }
-      h1 { letter-spacing: -1px; }
-      section { padding: 70px 0; }
-      .gallery { grid-template-columns: 1fr; }
-      .download-panel { padding: 35px 25px; }
-      .changelog { grid-template-columns: 1fr; gap: 6px; }
-    }
+.muted { color: var(--muted); }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .btn { transition: none; }
-    }
-  </style>
+.section-heading { margin-bottom: 36px; }
+
+.section-heading h2 { margin: 17px 0; }
+
+.section-heading p {
+  max-width: 630px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  background: rgba(7, 11, 9, .82);
+  border-bottom: 1px solid #ffffff1d;
+  backdrop-filter: blur(12px);
+}
+
+.nav-content {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-logo {
+  font: 900 27px "Barlow Condensed", sans-serif;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links a { transition: color .2s; }
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 130px 0 90px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 9, 7, .88) 0%,
+      rgba(4, 9, 7, .66) 44%,
+      rgba(4, 9, 7, .15) 100%
+    ),
+    url("assets/bg-forest.jpg") center center / cover no-repeat;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      0deg,
+      var(--bg) 0%,
+      transparent 26%,
+      transparent 80%,
+      #090d0b44 100%
+    );
+}
+
+.hero-content { width: 100%; }
+
+.hero-copy { max-width: 720px; }
+
+.hero h1 {
+  font-size: clamp(85px, 12vw, 165px);
+  line-height: .83;
+  letter-spacing: -2px;
+  font-weight: 900;
+  margin: 30px 0;
+  text-shadow: 0 6px 50px #00000055;
+}
+
+.hero h1 .accent { color: var(--accent); }
+
+.hero-description {
+  max-width: 510px;
+  color: #e1e8dc;
+  font-size: 15px;
+  line-height: 1.9;
+  text-shadow: 0 2px 12px #000;
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.btn {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 26px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #10180e;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #e4efc4;
+}
+
+.btn-secondary {
+  border-color: #ffffff7d;
+  background: #060a0899;
+  color: white;
+}
+
+.btn-secondary:hover { background: #ffffff21; }
+
+.btn-disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+  transform: none;
+  background: var(--accent);
+}
+
+.hero-footnote {
+  font-size: 10px;
+  margin-top: 36px;
+  color: #d3ddd1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* FEATURE STRIP */
+
+.features {
+  background: #121a15;
+  border-block: 1px solid var(--border);
+  padding: 32px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature {
+  padding: 16px 25px;
+  border-left: 2px solid var(--accent);
+}
+
+.feature strong {
+  display: block;
+  text-transform: uppercase;
+  font: 800 23px "Barlow Condensed", sans-serif;
+  letter-spacing: .5px;
+}
+
+.feature span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 7px;
+  line-height: 1.6;
+}
+
+/* TRAILER */
+
+.trailer { background: #0d130f; }
+
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      #2e4534,
+      #101711 68%
+    );
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.trailer-placeholder { text-align: center; }
+
+.play-circle {
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 30px;
+}
+
+.trailer-placeholder p {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+/* SCREENSHOT GALLERY */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.screenshot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: linear-gradient(130deg, #2b4031, #121b15);
+}
+
+.screenshot span {
+  color: #b9cbb6;
+  font: 800 20px "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.screenshot:has(img) { background: #111; }
+
+/* DOWNLOAD */
+
+.download { background: #0e1510; }
+
+.download-panel {
+  padding: 70px;
+  background:
+    radial-gradient(
+      ellipse at 90% 20%,
+      #45644355,
+      transparent 60%
+    ),
+    #19221a;
+  border: 1px solid #657d5b66;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.download-panel h2 {
+  margin: 15px 0;
+  font-size: clamp(55px, 7vw, 90px);
+}
+
+.download-panel p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.download-controls { text-align: center; }
+
+.download-controls small {
+  display: block;
+  margin-top: 15px;
+  color: var(--muted);
+}
+
+/* CHANGELOG */
+
+.update {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 30px;
+  padding: 35px 0;
+  border-top: 1px solid var(--border);
+}
+
+.update-version {
+  font: 800 38px "Barlow Condensed", sans-serif;
+  color: var(--accent);
+}
+
+.update h3 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.update p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 720px;
+}
+
+/* DISCORD */
+
+.discord-section {
+  text-align: center;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      #354b3466,
+      transparent 70%
+    ),
+    #121b15;
+}
+
+.discord-section h2 {
+  font-size: clamp(60px, 9vw, 110px);
+  margin: 20px 0;
+}
+
+.discord-section p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.discord-section .buttons { justify-content: center; }
+
+/* FOOTER */
+
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-inner strong {
+  color: white;
+  font: 800 24px "Barlow Condensed", sans-serif;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .container { padding: 0 20px; }
+
+  .nav-content { min-height: 66px; }
+
+  .nav-links {
+    gap: 13px;
+    font-size: 10px;
+  }
+
+  .nav-links .hide-mobile { display: none; }
+
+  section { padding: 70px 0; }
+
+  .hero { min-height: 90svh; }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        90deg,
+        #050907db,
+        #05090788
+      ),
+      url("assets/bg-forest.jpg") center center / cover no-repeat;
+  }
+
+  .hero h1 { font-size: clamp(73px, 14vw, 120px); }
+
+  .feature-grid, .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .download-panel { padding: 40px 26px; }
+
+  .update { grid-template-columns: 1fr; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+</style>
 </head>
 
 <body>
-  <nav>
-    <div class="container nav-inner">
-      <a class="brand" href="#home">MINI DAYZ 2<span>X</span></a>
-      <div class="nav-links">
-        <a class="optional" href="#trailer">Trailer</a>
-        <a class="optional" href="#gallery">Media</a>
-        <a href="#updates">Updates</a>
-        <a href="#download">Download ↓</a>
-      </div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <a href="#home" class="nav-logo">
+      MINI DAYZ 2<span>X</span>
+    </a>
+
+    <div class="nav-links">
+      <a class="hide-mobile" href="#trailer">Trailer</a>
+      <a class="hide-mobile" href="#gallery">Media</a>
+      <a href="#updates">Updates</a>
+      <a href="#download">Download</a>
+      <a href="#discord">Discord</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <main>
-    <header class="hero" id="home">
-      <div class="container hero-content">
-        <div class="eyebrow">Open Beta · Now Available</div>
-        <h1>MINI<br>DAYZ 2<span class="x">X</span></h1>
-        <p class="hero-description">
-          A familiar world. A different survival experience.
-          Explore, scavenge, fight, and make every day count
-          in an expanded, fan-made reimagining of Mini DAYZ 2.
-        </p>
-        <div class="actions">
-          <a class="btn" href="#download">Download Beta ↗</a>
-          <a class="btn btn-outline" href="#trailer">Watch Trailer ▷</a>
-        </div>
-        <div class="release-note">
-          Unofficial fan project · Beta build
-        </div>
+<main>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+  <div class="container hero-content">
+    <div class="hero-copy">
+
+      <div class="label">
+        Open Beta · Coming Soon
       </div>
-    </header>
 
-    <section class="trailer-section" id="trailer">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Official Trailer</div>
-          <h2>THE WORLD<br>IS STILL DEAD.</h2>
-          <p>Take a first look at Mini DAYZ 2X in action.</p>
-        </div>
-        <div class="video-frame" id="videoFrame">
-          <div class="video-placeholder">
-            <div class="play-icon">▶</div>
-            <p>Trailer coming soon</p>
-          </div>
-        </div>
+      <h1>
+        MINI<br>
+        DAYZ 2<span class="accent">X</span>
+      </h1>
+
+      <p class="hero-description">
+        A familiar world. A different survival experience.
+        Explore, scavenge, fight, and make every day count
+        in an expanded, fan-made reimagining of Mini DAYZ 2.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="#download">
+          Download Beta ↗
+        </a>
+
+        <a class="btn btn-secondary" href="#trailer">
+          Watch Trailer ▷
+        </a>
+
+        <a class="btn btn-secondary"
+           href="https://discord.gg/rcBnFdfzRc"
+           target="_blank"
+           rel="noopener noreferrer">
+          Join Discord ↗
+        </a>
       </div>
-    </section>
 
-    <section id="gallery">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">In-Game Footage</div>
-          <h2>TAKE A CLOSER LOOK.</h2>
-          <p>Gameplay screenshots captured from the world of MDZ 2X.</p>
-        </div>
-        <div class="gallery" id="screenshots">
-          <div class="shot"><span>Gameplay 01</span></div>
-          <div class="shot"><span>Gameplay 02</span></div>
-          <div class="shot"><span>Gameplay 03</span></div>
-          <div class="shot"><span>Gameplay 04</span></div>
-        </div>
+      <div class="hero-footnote">
+        Unofficial Fan Project · Open Beta
       </div>
-    </section>
 
-    <section id="download">
-      <div class="container">
-        <div class="download-panel">
-          <div>
-            <div class="eyebrow">Join the Open Beta</div>
-            <h2>YOUR STORY<br>STARTS HERE.</h2>
-            <p>Windows PC · Beta · Free to play</p>
-          </div>
-          <div class="download-action">
-            <a class="btn" id="downloadLink" href="#" aria-disabled="true">
-              Download coming soon
-            </a>
-            <small>Beta build · Windows</small>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</header>
 
-    <section id="updates">
-      <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Development Log</div>
-          <h2>PATCH NOTES.</h2>
-          <p>Follow the changes as Mini DAYZ 2X evolves.</p>
-        </div>
-        <div class="changelog">
-          <div class="version">BETA v0.1.0</div>
-          <div>
-            <h3>FIRST PUBLIC BETA</h3>
-            <p>
-              Initial public beta build. Full release notes
-              will be published here alongside the download.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- FEATURES -->
 
-    <section class="community" id="community">
-      <div class="container">
-        <div class="eyebrow">The Community</div>
-        <h2>YOU'RE NOT<br>ALONE OUT THERE.</h2>
-        <p>
-          Meet other survivors, share your creations, report bugs,
-          suggest features, and follow future development.
-          Modding and experimentation are welcome.
-        </p>
-        <div class="actions">
-          <a class="btn btn-outline" id="discordLink"
-             href="#" aria-disabled="true">Discord coming soon</a>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="features">
+  <div class="container feature-grid">
 
-  <footer>
-    <div class="container footer-inner">
-      <strong>MINI DAYZ 2X</strong>
+    <div class="feature">
+      <strong>Explore & Survive</strong>
       <span>
-        Unofficial fan-made project. Not affiliated with or
-        endorsed by the original game's rights holders.
+        Scavenge a hostile world and make every resource count.
       </span>
     </div>
-  </footer>
 
-  <script>
-    // ADD YOUR REAL LINKS AND IMAGES HERE
-    const site = {
-      downloadURL: "",
-      discordURL: "",
-      youtubeEmbedURL: "",
-      heroImage: "",
-      screenshots: ["", "", "", ""]
-    };
+    <div class="feature">
+      <strong>Expanded Gameplay</strong>
+      <span>
+        Discover additional equipment, mechanics, and content.
+      </span>
+    </div>
 
-    const download = document.getElementById("downloadLink");
-    if (site.downloadURL) {
-      download.href = site.downloadURL;
-      download.textContent = "Download Beta ↗";
-      download.removeAttribute("aria-disabled");
-    } else {
-      download.addEventListener("click", e => e.preventDefault());
-    }
+    <div class="feature">
+      <strong>Your Game, Your Rules</strong>
+      <span>
+        Experiment, modify, and play your way.
+      </span>
+    </div>
 
-    const discord = document.getElementById("discordLink");
-    if (site.discordURL) {
-      discord.href = site.discordURL;
-      discord.textContent = "Join Our Discord ↗";
-      discord.target = "_blank";
-      discord.rel = "noopener noreferrer";
-      discord.removeAttribute("aria-disabled");
-    } else {
-      discord.addEventListener("click", e => e.preventDefault());
-    }
+  </div>
+</div>
 
-    if (site.youtubeEmbedURL) {
-      const iframe = document.createElement("iframe");
-      iframe.src = site.youtubeEmbedURL;
-      iframe.title = "Mini DAYZ 2X Trailer";
-      iframe.loading = "lazy";
-      iframe.allowFullscreen = true;
-      iframe.allow =
-        "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
-      document.getElementById("videoFrame").replaceChildren(iframe);
-    }
+<!-- TRAILER -->
 
-    if (site.heroImage) {
-      const hero = document.querySelector(".hero");
-      hero.style.backgroundImage =
-        `linear-gradient(90deg,#080b0bee,#080b0b55),
-         linear-gradient(0deg,#090c0c,transparent 50%),
-         url("${site.heroImage}")`;
-      hero.style.backgroundSize = "cover";
-      hero.style.backgroundPosition = "center";
-    }
+<section class="trailer" id="trailer">
+  <div class="container">
 
-    document.querySelectorAll(".shot").forEach((slot, index) => {
-      const path = site.screenshots[index];
-      if (!path) return;
-      const img = document.createElement("img");
-      img.src = path;
-      img.alt = `Mini DAYZ 2X gameplay screenshot ${index + 1}`;
-      img.loading = "lazy";
-      slot.replaceChildren(img);
-    });
-  </script>
+    <div class="section-heading">
+      <div class="label">Official Trailer</div>
+      <h2>
+        THE WORLD<br>
+        IS STILL DEAD.
+      </h2>
+      <p>
+        Take your first look at Mini DAYZ 2X in action.
+      </p>
+    </div>
+
+    <div class="video-frame" id="videoFrame">
+      <div class="trailer-placeholder">
+        <div class="play-circle">▶</div>
+        <p>Trailer coming soon</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+
+<section id="gallery">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="label">Gameplay Gallery</div>
+      <h2>
+        TAKE A<br>
+        CLOSER LOOK.
+      </h2>
+      <p>
+        A glimpse into the world of Mini DAYZ 2X.
+      </p>
+    </div>
+
+    <div class="gallery" id="screenshots">
+
+      <div class="screenshot">
+        <span>Screenshot 01</span>
+      </div>
+
+      <div class="screenshot">
+        <span>Screenshot 02</span>
+      </div>
+
+      <div class="screenshot">
+        <span>Screenshot 03</span>
+      </div>
+
+      <div class="screenshot">
+        <span>Screenshot 04</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+
+<section class="download" id="download">
+  <div class="container">
+
+    <div class="download-panel">
+
+      <div>
+        <div class="label">Join the Open Beta</div>
+
+        <h2>
+          YOUR STORY<br>
+          STARTS HERE.
+        </h2>
+
+        <p>
+          Windows PC · Open Beta · Free to Play
+        </p>
+      </div>
+
+      <div class="download-controls">
+        <a
+          class="btn btn-disabled"
+          id="downloadLink"
+          href="#download"
+          aria-disabled="true">
+          Download Coming Soon
+        </a>
+
+        <small>
+          Windows PC · Beta Build
+        </small>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+
+<section id="updates">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="label">Development Log</div>
+      <h2>
+        PATCH NOTES.
+      </h2>
+      <p>
+        Follow the latest changes and improvements.
+      </p>
+    </div>
+
+    <div class="update">
+      <div class="update-version">
+        BETA v0.1.0
+      </div>
+
+      <div>
+        <h3>FIRST PUBLIC BETA</h3>
+        <p>
+          The first public beta release of Mini DAYZ 2X.
+          Explore the expanded survival experience,
+          report bugs, share feedback, and help shape
+          what's next.
+        </p>
+        <p>
+          Detailed patch notes will be published
+          alongside the first downloadable build.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DISCORD -->
+
+<section class="discord-section" id="discord">
+  <div class="container">
+
+    <div class="label">Join the Community</div>
+
+    <h2>
+      SURVIVE<br>
+      TOGETHER.
+    </h2>
+
+    <p>
+      Share gameplay, report bugs, suggest features,
+      show off your mods, and follow development.
+      Every survivor is welcome.
+    </p>
+
+    <div class="buttons">
+      <a
+        class="btn"
+        href="https://discord.gg/rcBnFdfzRc"
+        target="_blank"
+        rel="noopener noreferrer">
+        Join Our Discord ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container footer-inner">
+
+    <strong>MINI DAYZ 2X</strong>
+
+    <div>
+      An unofficial fan-made project.<br>
+      Not affiliated with or endorsed by
+      the original game's rights holders.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+/*
+  =====================================
+  MINI DAYZ 2X — WEBSITE CONFIGURATION
+  =====================================
+
+  Add your real trailer, screenshots,
+  and game download link here later.
+*/
+
+const SITE = {
+  downloadURL: "",
+
+  trailerEmbedURL: "",
+
+  screenshots: [
+    "",
+    "",
+    "",
+    ""
+  ]
+};
+
+/* DOWNLOAD BUTTON */
+
+const downloadButton =
+  document.getElementById("downloadLink");
+
+if (SITE.downloadURL) {
+  downloadButton.href = SITE.downloadURL;
+  downloadButton.textContent = "Download Open Beta ↗";
+  downloadButton.classList.remove("btn-disabled");
+  downloadButton.removeAttribute("aria-disabled");
+} else {
+  downloadButton.addEventListener("click", function(e) {
+    e.preventDefault();
+  });
+}
+
+/* YOUTUBE TRAILER */
+
+if (SITE.trailerEmbedURL) {
+  const iframe = document.createElement("iframe");
+
+  iframe.src = SITE.trailerEmbedURL;
+  iframe.title = "Mini DAYZ 2X Official Trailer";
+  iframe.loading = "lazy";
+  iframe.allowFullscreen = true;
+  iframe.allow =
+    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+
+  document
+    .getElementById("videoFrame")
+    .replaceChildren(iframe);
+}
+
+/* SCREENSHOT GALLERY */
+
+document.querySelectorAll(".screenshot")
+  .forEach((slot, index) => {
+
+    const imagePath = SITE.screenshots[index];
+
+    if (!imagePath) return;
+
+    const img = document.createElement("img");
+    img.src = imagePath;
+    img.alt =
+      "Mini DAYZ 2X gameplay screenshot " +
+      (index + 1);
+    img.loading = "lazy";
+
+    slot.replaceChildren(img);
+  });
+
+</script>
+
 </body>
 </html>
