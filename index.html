@@ -697,6 +697,7 @@ footer{background:#080d0a;padding:45px 0}
 .download-links{display:flex;flex-direction:column;gap:12px;align-items:stretch;min-width:min(100%,280px)}
 .download-links .btn{white-space:nowrap}
 .all-releases{margin-top:17px;font-size:12px;color:var(--accent);letter-spacing:.02em}
+.download-controls .download-architecture-note{max-width:320px;margin:9px auto 0;font-size:11px;line-height:1.6;color:var(--muted);text-align:center}
 .all-releases a:hover{text-decoration:underline}
 @media(max-width:760px){.download-links{min-width:0}.download-links .btn{white-space:normal}}
 </style>
@@ -896,12 +897,19 @@ footer{background:#080d0a;padding:45px 0}
           </a>
           <a class="btn btn-secondary" id="androidDownloadLink"
              href="https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.4_beta/MiniDayZ2.1_MobileShoreLoot_Test_ARM64_2026-10-24.apk" rel="noopener">
-            ↓ Download for Android (ARM64)
+            ↓ Android ARM64 (64-bit)
+          </a>
+          <a class="btn btn-secondary" id="android32DownloadLink"
+             href="https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.4_beta/MiniDayZ2.1_MobileShoreLoot_Test_ARMv7_2026-10-24.apk" rel="noopener">
+            ↓ Android ARMv7 (32-bit)
           </a>
         </div>
         <small>
-          Open Beta v0.1.4 · Windows ZIP / Android ARM64 APK
+          Open Beta v0.1.4 · Windows ZIP / Android APK
         </small>
+        <p class="download-architecture-note">
+          Android: choose ARM64 for 64-bit devices, or ARMv7 for 32-bit devices.
+        </p>
         <div class="all-releases"><a href="https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.4_beta" target="_blank" rel="noopener noreferrer">Release notes &amp; all downloads ↗</a></div>
       </div>
 
@@ -1020,6 +1028,7 @@ footer{background:#080d0a;padding:45px 0}
 const SITE = {
   downloadURL: "https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.4_beta/MDZ2.1_Windows_MobileShoreLoot_Test_2026-10-24.zip",
   androidDownloadURL: "https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.4_beta/MiniDayZ2.1_MobileShoreLoot_Test_ARM64_2026-10-24.apk",
+  android32DownloadURL: "https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.4_beta/MiniDayZ2.1_MobileShoreLoot_Test_ARMv7_2026-10-24.apk",
 
   trailerEmbedURL: ""
 };
@@ -1049,6 +1058,18 @@ if (SITE.androidDownloadURL) {
   androidButton.classList.add("btn-disabled");
   androidButton.setAttribute("aria-disabled", "true");
   androidButton.addEventListener("click", e => e.preventDefault());
+}
+
+const android32Button = document.getElementById("android32DownloadLink");
+if (SITE.android32DownloadURL) {
+  android32Button.href = SITE.android32DownloadURL;
+  android32Button.removeAttribute("aria-disabled");
+} else {
+  android32Button.href = "#download";
+  android32Button.textContent = "Android ARMv7 Download Coming Soon";
+  android32Button.classList.add("btn-disabled");
+  android32Button.setAttribute("aria-disabled", "true");
+  android32Button.addEventListener("click", e => e.preventDefault());
 }
 
 /* YOUTUBE TRAILER */
