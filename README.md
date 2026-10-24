@@ -10,9 +10,9 @@ Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded
 
 | Platform | Which build? | Direct download |
 | --- | --- | --- |
-| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.422_beta/MDZ2.1_Windows_BalanceAutoRaidControls_2026-10-24.zip) |
-| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.422_beta/MiniDayZ2.1_BalanceAutoRaidControls_ARM64_2026-10-24.apk) |
-| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.422_beta/MiniDayZ2.1_BalanceAutoRaidControls_ARMv7_2026-10-24.apk) |
+| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.42_beta/MDZ2.1_Windows_BalanceAutoRaidControls_2026-10-24.zip) |
+| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.42_beta/MiniDayZ2.1_BalanceAutoRaidControls_ARM64_2026-10-24.apk) |
+| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.42_beta/MiniDayZ2.1_BalanceAutoRaidControls_ARMv7_2026-10-24.apk) |
 
 **Not sure which Android build to use?** Check your device's CPU/ABI architecture. Choose **ARM64** for compatible 64-bit Android devices; choose **ARMv7** for compatible 32-bit Android devices. Android version alone does not determine whether a device is 32-bit or 64-bit.
 
