@@ -1,22 +1,22 @@
 # ☣️ Mini DAYZ 2X
 
-**Open Beta v0.1.45 — available for Windows and Android.**
+**Open Beta v0.1.46 — available for Windows and Android.**
 
 Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded gameplay, equipment, and survival systems. The project is in beta: expect unfinished features and bugs.
 
 **[Official website](https://bebi37.github.io/mini-dayz-2x/)** · **[All releases](https://github.com/bebi37/mini-dayz-2x/releases)** · **[Discord community](https://discord.gg/rcBnFdfzRc)**
 
-## 📥 Download v0.1.45
+## 📥 Download v0.1.46
 
 | Platform | Which build? | Direct download |
 | --- | --- | --- |
-| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.45_beta/MDZ2.1_Windows_ScavengingUpdate_2026-10-26.zip) |
-| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.45_beta/MiniDayZ2.1_ScavengingUpdate_ARM64_2026-10-26.apk) |
-| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.45_beta/MiniDayZ2.1_ScavengingUpdate_ARMv7_2026-10-26.apk) |
+| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.46_beta/MDZ2.1_Windows_LANAudio_2026-10-27.zip) |
+| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.46_beta/MiniDayZ2.1_LANAudio_ARM64_2026-10-27.apk) |
+| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.46_beta/MiniDayZ2.1_LANAudio_ARMv7_2026-10-27.apk) |
 
 **Not sure which Android build to use?** Check your device's CPU/ABI architecture. Choose **ARM64** for compatible 64-bit Android devices; choose **ARMv7** for compatible 32-bit Android devices. Android version alone does not determine whether a device is 32-bit or 64-bit.
 
-Both Android APKs are part of the same v0.1.45 release. Device OS and hardware compatibility may vary.
+Both Android APKs are part of the same v0.1.46 release. Device OS and hardware compatibility may vary.
 
 ### Install
 
@@ -32,17 +32,18 @@ Both Android APKs are part of the same v0.1.45 release. Device OS and hardware c
 
 **Before uninstalling or reinstalling:** Use the game's **save export** feature to back up your progress, then keep the exported backup somewhere safe. You can restore it through **save import**.
 
-## 🛠️ What's new in v0.1.45?
+## 🛠️ What's new in v0.1.46?
 
-- **Realistic item weights:** Rebalanced food, drinks, weapons and variants, attachments, backpacks, clothing, helmets and scavenging materials.
-- **10 new scavenging items:** Broken Radio, Alarm Clock, Walkie-Talkie, Car Alternator, Rusty Chain, Broken Chair, PVC Pipe, Metal Bolts, Broken Desk Fan and Damaged Power Tool, each with appropriate breakdown rewards.
-- **Environment-aware loot:** New items spawn in fitting map environments. Car Alternators also have an independent **0.5% chance per car container** on every map.
-- **Tisy rifle drops:** Doubled Mosin/Kar98k selection weights and raised the separate Kar98k bonus roll from **4% to 8%**; actual chest odds depend on the loot pool.
-- **Auto-raid and survivor switching fixes:** Clicking away survivors no longer cancels their raids; holding a portrait still allows fuel speed-up. Q/E and inventory arrows skip away survivors.
-- **Loot and map generation:** Loot spawned inside solid scenery relocates to clear ground; day/night map generation checked, including varied Factory raids. Loot benchmark recognizes new items.
-- **Co-op controller improvements:** Better inventory navigation, no accidental movement/fire/zoom while in menus, corrected Back button and LB/RB ability controls.
+- **Safer item drops:** Dropped items avoid nearby walls and scenery. If no clear spot is available, the item stays in inventory or equipment.
+- **Door interactions:** The normal interact control opens nearby doors. Closed doors can be interacted with without their own colliders blocking access, while unrelated walls and fences still block interaction.
+- **Mobile interaction priority:** Touch controls prioritize nearby loot, doors and usable objects instead of simply selecting the first item in the list.
+- **Bandage treatment:** Co-op healing still restores **25 HP** and now also stops bleeding. Bleeding players can be treated at full health, healthy players don't waste bandages, and each successful treatment consumes one bandage.
+- **Automatic-fire audio:** Guests hear every confirmed gunshot, even when multiple shots arrive in one network update.
+- **Suppressed weapon audio:** Guests receive the correct suppressed gunshot sounds.
+- **Duplicate protection:** Repeated network updates and effect IDs no longer replay the same sound, recoil or visual effect twice.
+- **Multiplayer compatibility:** Audio networking now uses **protocol 5**, preventing incompatible older clients from joining.
 
-Read the [full v0.1.45 release notes](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.45_beta).
+Read the [full v0.1.46 release notes](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.46_beta).
 
 ## 💬 Bugs, feedback and suggestions
 
