@@ -1,28 +1,28 @@
 # ☣️ Mini DAYZ 2X
 
-**Open Beta v0.1.48 — available for Windows and Android.**
+**Open Beta v0.1.49 — available for Windows and Android.**
 
 Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded gameplay, equipment, and survival systems. The project is in beta: expect unfinished features and bugs.
 
 **[Official website](https://bebi37.github.io/mini-dayz-2x/)** · **[All releases](https://github.com/bebi37/mini-dayz-2x/releases)** · **[Discord community](https://discord.gg/rcBnFdfzRc)**
 
-## 📥 Download v0.1.48
+## 📥 Download v0.1.49
 
 | Platform | Which build? | Direct download |
 | --- | --- | --- |
-| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.48_beta/MDZ2.1_Windows_RequestedUpdate_2026-10-28.zip) |
-| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.48_beta/MiniDayZ2.1_RequestedUpdate_ARM64_2026-10-28.apk) |
-| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.48_beta/MiniDayZ2.1_RequestedUpdate_ARMv7_2026-10-28.apk) |
+| **Windows PC** | Windows RAR | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.49_beta/MDZ2X_0_1_49_beta.rar) |
+| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.49_beta/MiniDayZ2X_ARM64.apk) |
+| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.49_beta/MiniDayZ2X_ARMv7.apk) |
 
 **Not sure which Android build to use?** Check your device's CPU/ABI architecture. Choose **ARM64** for compatible 64-bit Android devices; choose **ARMv7** for compatible 32-bit Android devices. Android version alone does not determine whether a device is 32-bit or 64-bit.
 
-Both Android APKs are part of the same v0.1.48 release. Device OS and hardware compatibility may vary.
+Both Android APKs are part of the same v0.1.49 release. Device OS and hardware compatibility may vary.
 
 ### Install
 
 **Windows**
-1. Download the ZIP from the table above.
-2. Extract the complete ZIP to a folder.
+1. Download the RAR from the table above.
+2. Extract the complete RAR archive to a folder.
 3. Launch the game's executable from the extracted folder; keep the accompanying Unity files together.
 
 **Android**
@@ -32,11 +32,25 @@ Both Android APKs are part of the same v0.1.48 release. Device OS and hardware c
 
 **Before uninstalling or reinstalling:** Use the game's **save export** feature to back up your progress, then keep the exported backup somewhere safe. You can restore it through **save import**.
 
-## 🛠️ Latest release — v0.1.48
+## 🛠️ Latest release — v0.1.49
 
-**Open Beta v0.1.48** is available for Windows and Android (ARM64 and ARMv7), published on October 28, 2026.
+**Open Beta v0.1.49** is available for Windows and Android (ARM64 and ARMv7), published on October 29, 2026.
 
-The [v0.1.48 release page](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.48_beta) contains the latest builds. Detailed change notes for this specific version have not been published yet; the feature highlights below belong to **v0.1.47**.
+The [v0.1.49 release page](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.49_beta) contains the latest builds.
+
+### What's new in v0.1.49
+
+- **Modification screen:** Added a Modification screen.
+- **Vision:** Added vision blur.
+- **Weapons:** Upgraded the laser system.
+- **Night vision:** Added an N-key toggle and sound.
+- **Cosmetics:** Added Whisperer masks.
+- **Loot:** Added a loot-sampling button.
+- **Movement:** Added a vertical-movement speed setting.
+- **Audio:** Added new weather and lobby sounds.
+- **LAN co-op:** If the host leaves, guests only keep items they brought.
+
+Previous release: [v0.1.48](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.48_beta).
 
 ## 📰 Previous update highlights — v0.1.47
 
