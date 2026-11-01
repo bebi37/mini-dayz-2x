@@ -1,22 +1,22 @@
 # ☣️ Mini DAYZ 2X
 
-**Open Beta v0.1.49 — available for Windows and Android.**
+**Open Beta v0.1.5.2 — available for Windows and Android.**
 
 Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded gameplay, equipment, and survival systems. The project is in beta: expect unfinished features and bugs.
 
 **[Official website](https://bebi37.github.io/mini-dayz-2x/)** · **[All releases](https://github.com/bebi37/mini-dayz-2x/releases)** · **[Discord community](https://discord.gg/rcBnFdfzRc)**
 
-## 📥 Download v0.1.49
+## 📥 Download v0.1.5.2
 
 | Platform | Which build? | Direct download |
 | --- | --- | --- |
-| **Windows PC** | Windows RAR | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.49_beta/MDZ2X_0_1_49_beta.rar) |
-| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.49_beta/MiniDayZ2X_ARM64.apk) |
-| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.49_beta/MiniDayZ2X_ARMv7.apk) |
+| **Windows PC** | Windows RAR | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.52_beta/MDZ2X_SBs.rar) |
+| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.52_beta/MiniDayZ2X_ARM64.apk) |
+| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.52_beta/MiniDayZ2X_ARMv7.apk) |
 
 **Not sure which Android build to use?** Check your device's CPU/ABI architecture. Choose **ARM64** for compatible 64-bit Android devices; choose **ARMv7** for compatible 32-bit Android devices. Android version alone does not determine whether a device is 32-bit or 64-bit.
 
-Both Android APKs are part of the same v0.1.49 release. Device OS and hardware compatibility may vary.
+Both Android APKs are part of the same v0.1.5.2 release. Device OS and hardware compatibility may vary.
 
 ### Install
 
@@ -32,11 +32,26 @@ Both Android APKs are part of the same v0.1.49 release. Device OS and hardware c
 
 **Before uninstalling or reinstalling:** Use the game's **save export** feature to back up your progress, then keep the exported backup somewhere safe. You can restore it through **save import**.
 
-## 🛠️ Latest release — v0.1.49
+## 🛠️ Latest release — v0.1.5.2
+
+**Open Beta v0.1.5.2** was published on November 1, 2026, with Windows and Android (ARM64 / ARMv7) builds.
+
+See the [v0.1.5.2 release page](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.52_beta) for all three downloads and official release notes.
+
+### What's new in v0.1.5.2
+
+- **Grenades:** Explosives are finally in the game.
+- **Grenade launchers:** New explosive firepower.
+- **Dark raids:** Experience raids in the darkness.
+- **Fixes and balance:** More bug fixes and balance changes.
+
+**iOS:** The game can be played via IPA sideloading, but an IPA is **not included** among this release's downloadable assets. The links above are for Windows and Android.
+
+## 📰 Previous release — v0.1.49
 
 **Open Beta v0.1.49** is available for Windows and Android (ARM64 and ARMv7), published on October 29, 2026.
 
-The [v0.1.49 release page](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.49_beta) contains the latest builds.
+The [v0.1.49 release page](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.49_beta) contains the previous builds.
 
 ### What's new in v0.1.49
 
