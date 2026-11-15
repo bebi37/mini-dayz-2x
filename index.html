@@ -581,7 +581,7 @@ section{padding:clamp(76px,9vw,140px) 0}
 .video-frame:before,.video-frame:after{content:"";position:absolute;height:18px;width:18px;border:solid var(--accent);pointer-events:none;z-index:1}
 .video-frame:before{top:14px;left:14px;border-width:1px 0 0 1px}
 .video-frame:after{right:14px;bottom:14px;border-width:0 1px 1px 0}
-.video-frame iframe,.video-frame video{position:relative;z-index:2;width:100%;height:100%;display:block;background:#000;object-fit:contain}
+.video-frame iframe{position:relative;z-index:2}.video-frame video{position:absolute;inset:0;z-index:2;width:100%;height:100%;display:block;background:#000;object-fit:contain}
 .trailer-placeholder{position:relative;z-index:1}
 .play-circle{margin-bottom:17px;background:#0c160f6b;border-color:#d6e9af;color:var(--accent);backdrop-filter:blur(10px);transition:transform .3s;width:96px;height:96px;font-size:27px}
 .trailer-caption{font:800 clamp(26px,3vw,42px) "Barlow Condensed",sans-serif;letter-spacing:.025em}
