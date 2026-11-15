@@ -1,6 +1,6 @@
 # ☣️ Mini DAYZ 2X
 
-**Open Beta v0.1.5.5 — available for Windows and Android.** (iOS: the v0.1.5.3 IPA remains the latest iOS build.)
+**Open Beta v0.1.5.5 — available for Windows, Android, and iOS.**
 
 Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded gameplay, equipment, and survival systems. The project is in beta: expect unfinished features and bugs.
 
@@ -13,11 +13,11 @@ Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded
 | **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_PLUS.zip) |
 | **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_ARM64.apk) |
 | **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_ARMv7.apk) |
-| **iOS** | IPA for sideloading (v0.1.5.3 — not updated yet) | [Download iOS IPA](https://github.com/bebi37/mini-dayz-2x/releases/download/0.1.53_beta/MiniDAYZ2X.ipa) |
+| **iOS** | IPA for sideloading | [Download iOS IPA](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDAYZ2X.ipa) |
 
 **Not sure which Android build to use?** Check your device's CPU/ABI architecture. Choose **ARM64** for compatible 64-bit Android devices; choose **ARMv7** for compatible 32-bit Android devices. Android version alone does not determine whether a device is 32-bit or 64-bit.
 
-Both Android APKs are part of the same v0.1.5.5 release. Device OS and hardware compatibility may vary.
+Both Android APKs and the iOS IPA are part of the same v0.1.5.5 release. Device OS and hardware compatibility may vary.
 
 ### Install
 
