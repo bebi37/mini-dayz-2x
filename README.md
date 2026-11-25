@@ -1,23 +1,23 @@
 # ☣️ Mini DAYZ 2X
 
-**Open Beta v0.1.5.5 — available for Windows, Android, and iOS.**
+**Open Beta v0.1.6 — available for Windows, Android, and iOS.**
 
 Mini DAYZ 2X is an unofficial, fan-made reimagining of Mini DAYZ 2 with expanded gameplay, equipment, and survival systems. The project is in beta: expect unfinished features and bugs.
 
 **[Official website](https://bebi37.github.io/mini-dayz-2x/)** · **[All releases](https://github.com/bebi37/mini-dayz-2x/releases)** · **[Trailer](https://bebi37.github.io/mini-dayz-2x/#trailer)** · **[Discord community](https://discord.gg/rcBnFdfzRc)**
 
-## 📥 Download v0.1.5.5
+## 📥 Download v0.1.6
 
 | Platform | Which build? | Direct download |
 | --- | --- | --- |
-| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_PLUS.zip) |
-| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_ARM64.apk) |
-| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_ARMv7.apk) |
-| **iOS** | IPA for sideloading | [Download iOS IPA](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDAYZ2X.ipa) |
+| **Windows PC** | Windows ZIP | [Download Windows](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.6_OP_beta/MDZ2X_OMW.zip) |
+| **Android — ARM64** | **64-bit** ARM devices | [Download Android ARM64 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.6_OP_beta/MiniDayZ2X_ARM64.apk) |
+| **Android — ARMv7** | **32-bit** ARM devices | [Download Android ARMv7 APK](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.6_OP_beta/MiniDayZ2X_ARMv7.apk) |
+| **iOS** | IPA for sideloading | [Download iOS IPA](https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.6_OP_beta/MiniDAYZ2X.ipa) |
 
 **Not sure which Android build to use?** Check your device's CPU/ABI architecture. Choose **ARM64** for compatible 64-bit Android devices; choose **ARMv7** for compatible 32-bit Android devices. Android version alone does not determine whether a device is 32-bit or 64-bit.
 
-Both Android APKs and the iOS IPA are part of the same v0.1.5.5 release. Device OS and hardware compatibility may vary.
+Both Android APKs and the iOS IPA are part of the same v0.1.6 release. Device OS and hardware compatibility may vary.
 
 ### Install
 
@@ -31,9 +31,26 @@ Both Android APKs and the iOS IPA are part of the same v0.1.5.5 release. Device 
 2. Open the APK on your Android device and follow the installation prompts.
 3. Android may ask you to allow installation from the app used to open the APK. Only install files you trust.
 
+**iOS**
+1. Download `MiniDAYZ2X.ipa` from the table above.
+2. Sideload the IPA onto your device using your preferred signing tool (e.g., AltStore or Sideloadly).
+
 **Before uninstalling or reinstalling:** Use the game's **save export** feature to back up your progress, then keep the exported backup somewhere safe. You can restore it through **save import**.
 
-## 🔥 What's new in v0.1.5.5
+## 🔥 What's new in v0.1.6
+
+- 🌍 **Open World Mode w/ Co-op** — Explore a larger world, survive together, loot, fight, and play beyond traditional raids.
+- 🗺️ **New Raid Map — The Terminus** — *"The last stronghold to the island escape. Whoever built the helicopter here was not finished."*
+- 🔥 **New Weapons** — Introducing the **Flamethrower** and **Minigun**, plus a **Weapon Attachments Overhaul**.
+- ⚒️ **Survival Building Mode** — Build your own safe haven in Open World mode, with new buildings and updates.
+- 🚙 **Open World Vehicles** — Find and drive vehicles directly in Open World mode (no longer admin-panel exclusive).
+- 🧟 **New AI System & Directional Sound Indicator** — Smarter, more responsive enemies and clearer audio awareness.
+- 🩸 **Expanded Health, Status Effects & Equipment Feel** — Deeper survival mechanics, heavier movement/equipment feedback, and a Boss Hunting + Pity System.
+- ⚙️ **Expanded Settings, UI Themes & Major Optimization** — More personalization options, random events, easter eggs, and smoother co-op performance.
+
+See the [v0.1.6 release](https://github.com/bebi37/mini-dayz-2x/releases/tag/v0.1.6_OP_beta) for the official notes. **This is still a beta.**
+
+## Previous release — v0.1.5.5
 
 - 🚗 **New vehicles**, 🚁 **helicopters** and 🪖 **tanks**.
 - 🎲 **Random events** during raids, including a roaming horde of infected.
