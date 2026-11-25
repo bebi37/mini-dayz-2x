@@ -754,21 +754,55 @@ footer{background:#080d0a;padding:45px 0}
   position:fixed;
   inset:0;
   z-index:500;
-  display:none;
+  display:flex;
   align-items:center;
   justify-content:center;
   padding:clamp(16px,4vw,44px);
   background:rgba(4,8,6,.92);
   backdrop-filter:blur(10px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .25s ease,visibility .25s ease;
 }
-.lightbox.is-open{display:flex}
+.lightbox.is-open{opacity:1;visibility:visible;pointer-events:auto}
 .lightbox-dialog{
   position:relative;
   width:min(1120px,100%);
   display:flex;
   flex-direction:column;
   gap:14px;
+  transform:scale(.97);
+  transition:transform .25s ease;
 }
+.lightbox.is-open .lightbox-dialog{transform:scale(1)}
+
+.nav-links a.is-active{color:var(--accent)}
+.nav-links a.is-active:not(:last-of-type):after{width:100%}
+.scroll-progress{
+  position:absolute;
+  bottom:0;
+  left:0;
+  height:2px;
+  width:0%;
+  background:var(--accent);
+  opacity:.85;
+  transition:width .08s linear;
+  pointer-events:none;
+}
+.update{transition:border-color .25s ease,background .25s ease}
+.update:hover{border-color:#5f7a62;background:#161f19}
+.back-to-top{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--accent);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.back-to-top:hover{text-decoration:underline}
 .lightbox-media{
   position:relative;
   background:#0a100c;
@@ -846,6 +880,7 @@ footer{background:#080d0a;padding:45px 0}
     <a href="#download">Download</a>
     <a href="#discord">Discord</a>
   </div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 </nav>
 
 <main>
@@ -1188,6 +1223,8 @@ footer{background:#080d0a;padding:45px 0}
       the original game's rights holders.
     </div>
 
+    <a class="back-to-top" href="#home">Back to top ↑</a>
+
   </div>
 </footer>
 
@@ -1255,9 +1292,31 @@ if (SITE.trailerEmbedURL) {
 /* Subtle enhancements. Content remains visible when JavaScript is disabled. */
 (function () {
   const nav = document.querySelector('.navbar');
-  const setNav = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 36);
-  setNav();
-  window.addEventListener('scroll', setNav, {passive: true});
+  const progressBar = document.getElementById('scrollProgress');
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const trackedSections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    if (nav) nav.classList.toggle('is-scrolled', y > 36);
+    if (progressBar) {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = maxScroll > 0 ? Math.min(100, Math.max(0, (y / maxScroll) * 100)) : 0;
+      progressBar.style.width = `${pct}%`;
+    }
+    if (trackedSections.length) {
+      const probe = y + 140;
+      let activeId = '';
+      for (const sec of trackedSections) {
+        if (sec.offsetTop <= probe) activeId = `#${sec.id}`;
+      }
+      navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === activeId));
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive: true});
 
   /* Mobile navigation drawer */
   const navToggle = document.getElementById('navToggle');
