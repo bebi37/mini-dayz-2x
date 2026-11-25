@@ -535,9 +535,9 @@ body{background:var(--bg);font-feature-settings:"ss01" on}
 .nav-logo{font-size:27px;letter-spacing:.065em}
 .nav-links{gap:clamp(13px,2.2vw,32px);font-size:11px}
 .nav-links a{position:relative;padding:11px 0;color:#e8eae2a8}
-.nav-links a:last-child{color:var(--accent);border:1px solid #d8e6ab73;padding:13px 18px}
-.nav-links a:not(:last-child):after{position:absolute;bottom:4px;left:0;width:0;height:1px;background:var(--accent);content:"";transition:width .3s}
-.nav-links a:not(:last-child):hover:after{width:100%}
+.nav-links a:last-of-type{color:var(--accent);border:1px solid #d8e6ab73;padding:13px 18px}
+.nav-links a:not(:last-of-type):after{position:absolute;bottom:4px;left:0;width:0;height:1px;background:var(--accent);content:"";transition:width .3s}
+.nav-links a:not(:last-of-type):hover:after{width:100%}
 .hero{min-height:100svh;padding:150px 0 118px;align-items:center}
 .hero::before{background:linear-gradient(90deg,rgba(4,9,7,.85) 0%,rgba(4,9,7,.62) 40%,rgba(4,9,7,.18) 80%),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center center/cover no-repeat;animation:heroBreathe 30s ease-in-out infinite alternate}
 .hero::after{background:linear-gradient(to top,var(--bg) 0%,transparent 27%),linear-gradient(to bottom,#080c0a7c 0%,transparent 29%),linear-gradient(90deg,#06120a35,transparent 80%);opacity:1}
@@ -631,7 +631,7 @@ footer{background:#080d0a;padding:45px 0}
   .nav-logo{font-size:23px}
   .nav-links{gap:13px}
   .nav-links a{font-size:10px}
-  .nav-links a:last-child{padding:9px 11px}
+  .nav-links a:last-of-type{padding:9px 11px}
   .hero{min-height:93svh;padding:122px 0 105px}
   .hero::before{background:linear-gradient(90deg,#050a07d9,#050a0790),url("assets/Rusty%20Car%20Beneath%20the%20Green%20Aurora.png") center/cover no-repeat}
   .hero-coordinate{top:89px;left:22px;right:22px;justify-content:space-between;font-size:9px}
@@ -700,6 +700,121 @@ footer{background:#080d0a;padding:45px 0}
 .download-controls .download-architecture-note{max-width:320px;margin:9px auto 0;font-size:11px;line-height:1.6;color:var(--muted);text-align:center}
 .all-releases a:hover{text-decoration:underline}
 @media(max-width:760px){.download-links{min-width:0}.download-links .btn{white-space:normal}}
+
+/* ================================================
+   V2.1 POLISH: VIDEO, MOBILE NAV & GALLERY LIGHTBOX
+   ================================================ */
+.video-frame{aspect-ratio:16/9}
+.hero-footnote{color:#d7e2d0;text-shadow:0 1px 10px #000}
+
+.nav-toggle{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  width:40px;
+  height:40px;
+  padding:0;
+  background:transparent;
+  border:1px solid #d8e6ab55;
+  color:var(--accent);
+  cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.nav-toggle:hover{background:#d8e6ab18;border-color:var(--accent)}
+.nav-toggle svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
+
+.nav-drawer{
+  display:none;
+  flex-direction:column;
+  background:rgba(7,13,10,.97);
+  border-top:1px solid #a9bda028;
+  padding:14px 22px 20px;
+  gap:4px;
+}
+.nav-drawer.is-open{display:flex}
+.nav-drawer a{
+  padding:12px 4px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#e8eae2cc;
+  border-bottom:1px solid #ffffff10;
+}
+.nav-drawer a:last-child{
+  border-bottom:0;
+  color:var(--accent);
+}
+@media(max-width:760px){
+  .nav-toggle{display:inline-flex}
+  .nav-links .hide-mobile,.nav-links a[href="#updates"]{display:none}
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(16px,4vw,44px);
+  background:rgba(4,8,6,.92);
+  backdrop-filter:blur(10px);
+}
+.lightbox.is-open{display:flex}
+.lightbox-dialog{
+  position:relative;
+  width:min(1120px,100%);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.lightbox-media{
+  position:relative;
+  background:#0a100c;
+  border:1px solid #68816c66;
+  overflow:hidden;
+}
+.lightbox-media img{
+  display:block;
+  width:100%;
+  max-height:76svh;
+  object-fit:contain;
+  background:#070b09;
+}
+.lightbox-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.lightbox-caption{
+  font:800 clamp(20px,2.5vw,28px) "Barlow Condensed",sans-serif;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--text);
+}
+.lightbox-caption span{
+  color:var(--accent);
+  font:700 12px Inter,sans-serif;
+  letter-spacing:.12em;
+  margin-right:10px;
+}
+.lightbox-controls{display:flex;align-items:center;gap:10px}
+.lightbox-btn{
+  min-height:40px;
+  padding:0 16px;
+  background:#111914;
+  border:1px solid #d8e6ab55;
+  color:var(--text);
+  font:700 11px Inter,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.lightbox-btn:hover{background:var(--accent);border-color:var(--accent);color:#10180e}
 </style>
 </head>
 
@@ -719,7 +834,17 @@ footer{background:#080d0a;padding:45px 0}
       <a href="#updates">Updates</a>
       <a href="#download">Download</a>
       <a href="#discord">Discord</a>
+      <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navDrawer" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
+  </div>
+  <div class="nav-drawer" id="navDrawer" aria-label="Mobile navigation">
+    <a href="#trailer">Trailer</a>
+    <a href="#gallery">Media</a>
+    <a href="#updates">Updates</a>
+    <a href="#download">Download</a>
+    <a href="#discord">Discord</a>
   </div>
 </nav>
 
@@ -763,7 +888,7 @@ footer{background:#080d0a;padding:45px 0}
         </a>
       </div>
 
-      <div class="hero-footnote">INDEPENDENT FAN PROJECT <span class="sep">/</span> PC <span class="sep">/</span> BETA DEVELOPMENT</div>
+      <div class="hero-footnote">INDEPENDENT FAN PROJECT <span class="sep">/</span> WINDOWS · ANDROID · IOS <span class="sep">/</span> OPEN BETA</div>
 
     </div>
   </div>
@@ -1056,78 +1181,65 @@ footer{background:#080d0a;padding:45px 0}
   </div>
 </footer>
 
+<div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" aria-hidden="true">
+  <div class="lightbox-dialog">
+    <div class="lightbox-media">
+      <img id="lightboxImg" src="" alt="">
+    </div>
+    <div class="lightbox-bar">
+      <div class="lightbox-caption" id="lightboxTitle"></div>
+      <div class="lightbox-controls">
+        <button class="lightbox-btn" type="button" id="lightboxPrev" aria-label="Previous image">← Prev</button>
+        <button class="lightbox-btn" type="button" id="lightboxNext" aria-label="Next image">Next →</button>
+        <button class="lightbox-btn" type="button" id="lightboxClose" aria-label="Close lightbox">Close ✕</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /*
   =====================================
   MINI DAYZ 2X — WEBSITE CONFIGURATION
   =====================================
-
-  Add your real trailer, screenshots,
-  and game download link here later.
 */
 
 const SITE = {
   downloadURL: "https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_PLUS.zip",
   androidDownloadURL: "https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_ARM64.apk",
   android32DownloadURL: "https://github.com/bebi37/mini-dayz-2x/releases/download/v0.1.5.5_beta/MiniDayZ2X_ARMv7.apk",
-
   trailerEmbedURL: ""
 };
 
-/* DOWNLOAD BUTTON */
-
-const downloadButton =
-  document.getElementById("downloadLink");
-
-if (SITE.downloadURL) {
-  downloadButton.href = SITE.downloadURL;
-  downloadButton.removeAttribute("aria-disabled");
-} else {
-  downloadButton.href = "#download";
-  downloadButton.textContent = "Windows Download Coming Soon";
-  downloadButton.classList.add("btn-disabled");
-  downloadButton.setAttribute("aria-disabled", "true");
-  downloadButton.addEventListener("click", e => e.preventDefault());
-}
-const androidButton = document.getElementById("androidDownloadLink");
-if (SITE.androidDownloadURL) {
-  androidButton.href = SITE.androidDownloadURL;
-  androidButton.removeAttribute("aria-disabled");
-} else {
-  androidButton.href = "#download";
-  androidButton.textContent = "Android Download Coming Soon";
-  androidButton.classList.add("btn-disabled");
-  androidButton.setAttribute("aria-disabled", "true");
-  androidButton.addEventListener("click", e => e.preventDefault());
+function configureDownloadButton(id, url, fallbackText) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  if (url) {
+    btn.href = url;
+    btn.removeAttribute("aria-disabled");
+  } else {
+    btn.href = "#download";
+    btn.textContent = fallbackText;
+    btn.classList.add("btn-disabled");
+    btn.setAttribute("aria-disabled", "true");
+    btn.addEventListener("click", e => e.preventDefault());
+  }
 }
 
-const android32Button = document.getElementById("android32DownloadLink");
-if (SITE.android32DownloadURL) {
-  android32Button.href = SITE.android32DownloadURL;
-  android32Button.removeAttribute("aria-disabled");
-} else {
-  android32Button.href = "#download";
-  android32Button.textContent = "Android ARMv7 Download Coming Soon";
-  android32Button.classList.add("btn-disabled");
-  android32Button.setAttribute("aria-disabled", "true");
-  android32Button.addEventListener("click", e => e.preventDefault());
-}
+configureDownloadButton("downloadLink", SITE.downloadURL, "Windows Download Coming Soon");
+configureDownloadButton("androidDownloadLink", SITE.androidDownloadURL, "Android Download Coming Soon");
+configureDownloadButton("android32DownloadLink", SITE.android32DownloadURL, "Android ARMv7 Download Coming Soon");
 
 /* YOUTUBE TRAILER */
 
 if (SITE.trailerEmbedURL) {
   const iframe = document.createElement("iframe");
-
   iframe.src = SITE.trailerEmbedURL;
   iframe.title = "Mini DAYZ 2X Official Trailer";
   iframe.loading = "lazy";
   iframe.allowFullscreen = true;
-  iframe.allow =
-    "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
-
-  document
-    .getElementById("videoFrame")
-    .replaceChildren(iframe);
+  iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+  document.getElementById("videoFrame").replaceChildren(iframe);
 }
 
 /* Subtle enhancements. Content remains visible when JavaScript is disabled. */
@@ -1137,8 +1249,97 @@ if (SITE.trailerEmbedURL) {
   setNav();
   window.addEventListener('scroll', setNav, {passive: true});
 
+  /* Mobile navigation drawer */
+  const navToggle = document.getElementById('navToggle');
+  const navDrawer = document.getElementById('navDrawer');
+  if (navToggle && navDrawer) {
+    const closeDrawer = () => {
+      navDrawer.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+    navToggle.addEventListener('click', () => {
+      const open = navDrawer.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    navDrawer.querySelectorAll('a').forEach(link => link.addEventListener('click', closeDrawer));
+    window.addEventListener('resize', () => { if (window.innerWidth > 760) closeDrawer(); });
+  }
+
+  /* In-page gallery lightbox */
+  const lightbox = document.getElementById('galleryLightbox');
+  const galleryItems = Array.from(document.querySelectorAll('#screenshots .gallery-photo'));
+  if (lightbox && galleryItems.length) {
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
+    const lbClose = document.getElementById('lightboxClose');
+    let activeIndex = 0;
+    let lastTrigger = null;
+
+    const showItem = index => {
+      activeIndex = (index + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[activeIndex];
+      const img = item.querySelector('img');
+      const num = item.querySelector('.gallery-number')?.textContent.trim() || `${activeIndex + 1} /`;
+      const labelClone = item.querySelector('.gallery-label')?.cloneNode(true);
+      labelClone?.querySelectorAll('.gallery-number, .gallery-arrow').forEach(el => el.remove());
+      const titleText = labelClone ? labelClone.textContent.trim() : '';
+
+      lbImg.src = item.getAttribute('href') || img?.src || '';
+      lbImg.alt = img?.alt || titleText;
+      lbTitle.innerHTML = '';
+      const span = document.createElement('span');
+      span.textContent = `${num} ${activeIndex + 1}/${galleryItems.length}`;
+      lbTitle.appendChild(span);
+      lbTitle.appendChild(document.createTextNode(titleText));
+    };
+
+    const openLightbox = (index, trigger) => {
+      lastTrigger = trigger || null;
+      showItem(index);
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastTrigger) lastTrigger.focus();
+    };
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        openLightbox(index, item);
+      });
+    });
+
+    document.getElementById('lightboxPrev').addEventListener('click', () => showItem(activeIndex - 1));
+    document.getElementById('lightboxNext').addEventListener('click', () => showItem(activeIndex + 1));
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') showItem(activeIndex - 1);
+      else if (e.key === 'ArrowRight') showItem(activeIndex + 1);
+    });
+  }
+
+  /* Scroll reveal (also reveals elements above or inside viewport on jump-scrolls) */
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-    const nodes = document.querySelectorAll('.section-heading, .feature, .video-frame, .screenshot, .download-panel, .update, .discord-section .container');
+    const nodes = Array.from(document.querySelectorAll('.section-heading, .feature, .video-frame, .screenshot, .download-panel, .update, .discord-section .container'));
+    const revealVisibleOrPassed = () => {
+      const limit = window.innerHeight + 80;
+      for (const node of nodes) {
+        if (!node.classList.contains('revealed') && node.getBoundingClientRect().top < limit) {
+          node.classList.add('revealed');
+          observer.unobserve(node);
+        }
+      }
+    };
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -1146,8 +1347,11 @@ if (SITE.trailerEmbedURL) {
           observer.unobserve(entry.target);
         }
       }
-    }, {threshold: 0.08, rootMargin: '0px 0px 60px 0px'});
+    }, {threshold: 0.05, rootMargin: '0px 0px 80px 0px'});
     nodes.forEach(node => { node.classList.add('reveal-pending'); observer.observe(node); });
+    revealVisibleOrPassed();
+    window.addEventListener('scroll', revealVisibleOrPassed, {passive: true});
+    window.addEventListener('hashchange', () => setTimeout(revealVisibleOrPassed, 60));
   }
 })();
 </script>
